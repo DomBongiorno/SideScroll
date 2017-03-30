@@ -15,7 +15,7 @@ public class Player : MonoBehaviour {
 	void Start ()
 	{
 		rigidbody = GetComponent<Rigidbody2D> ();
-		_GM = FindObjectOfType<_GM> ();
+		_GM = FindObjectOfType<GM> ();
 	}
 	
 
