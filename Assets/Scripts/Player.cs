@@ -9,6 +9,8 @@ public class Player : MonoBehaviour {
 	public float jumpspeed = 5;
 	public float deadZone = -6;
 
+	private Vector3 startingposition;
+
 	new Rigidbody2D rigidbody;
 	GM _GM;
 
@@ -16,6 +18,7 @@ public class Player : MonoBehaviour {
 	{
 		rigidbody = GetComponent<Rigidbody2D> ();
 		_GM = FindObjectOfType<GM> ();
+		startingposition = transform.position;
 	}
 	
 
@@ -36,6 +39,8 @@ public class Player : MonoBehaviour {
 		if (transform.position.y < deadZone) 
 		{
 			Debug.Log ("You're Out");
+			transform.position = startingposition;
+			GetOut ();
 		}
 
 	}
