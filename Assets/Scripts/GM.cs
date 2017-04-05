@@ -16,6 +16,7 @@ public class GM : MonoBehaviour
 		{
 			GameOver ();
 		}
+		Debug.Log ("Lives:" + lives);
 	}
 
 	void GameOver()
