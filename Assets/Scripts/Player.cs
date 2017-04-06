@@ -39,7 +39,7 @@ public class Player : MonoBehaviour {
 		if (transform.position.y < deadZone) 
 		{
 			Debug.Log ("You're Out");
-			transform.position = startingposition;
+
 			GetOut ();
 		}
 
@@ -48,5 +48,6 @@ public class Player : MonoBehaviour {
 	public void GetOut()
 	{
 		_GM.SetLives (_GM.lives - 1);
+		transform.position = startingposition;
 	}
 }

@@ -8,7 +8,9 @@ public class GM : MonoBehaviour
 {
 
 	public int lives;
-	public int points;
+	private int points;
+
+
 	public GameObject Gameover;
 	public Text LivesValue;
 	public Text ScoreValue;  
@@ -27,5 +29,17 @@ public class GM : MonoBehaviour
 	{
 		Gameover.SetActive (true);
 	}
+
+	public void SetPoints(int newValue)
+	{
+		points = newValue;
+		ScoreValue.text = points.ToString ();
+	}
+
+	public int GetPoints()
+	{
+		return points;
+	}
+
 
 }
