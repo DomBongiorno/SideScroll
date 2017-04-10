@@ -5,7 +5,7 @@ using UnityEngine;
 public class Collectable : MonoBehaviour 
 {
 
-
+	public int value;
 
 	void OnCollisionEnter2D(Collision2D coll)
 	{
@@ -13,7 +13,7 @@ public class Collectable : MonoBehaviour
 		if (player != null) 
 		{
 			gameObject.SetActive(false);
-			FindObjectOfType<GM> ().SetPoints (FindObjectOfType<GM> ().GetPoints () + 100);
+			FindObjectOfType<GM> ().SetPoints (FindObjectOfType<GM> ().GetPoints () + value);
 		}
 	}
 }
