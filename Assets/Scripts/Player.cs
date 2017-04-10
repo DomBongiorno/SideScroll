@@ -6,7 +6,7 @@ public class Player : MonoBehaviour {
 
 	public int health = 100;
 	public float speed = 5;
-	public float jumpspeed = 5;
+	public float jumpspeed = 6;
 	public float deadZone = -6;
 
 	private Vector3 startingposition;
@@ -14,11 +14,17 @@ public class Player : MonoBehaviour {
 	new Rigidbody2D rigidbody;
 	GM _GM;
 
+	private Animator anim;
+	public bool air;
+
 	void Start ()
 	{
 		rigidbody = GetComponent<Rigidbody2D> ();
 		_GM = FindObjectOfType<GM> ();
 		startingposition = transform.position;
+
+		anim = GetComponent<Animator> ();
+		air = true;
 	}
 	
 
@@ -29,9 +35,27 @@ public class Player : MonoBehaviour {
 		Vector2 v = rigidbody.velocity;
 		v.x = x * speed;
 
+		if (v.x != 0) 
+		{
+			anim.SetBool ("Running", true);
+		} 
+		else 
+		{
+			anim.SetBool ("Running", false);
+		}
+
 		if (Input.GetButtonDown ("Jump")) 
 		{
 			v.y = jumpspeed; 
+		}
+
+		if (air) 
+		{
+			anim.SetBool ("Air", true);
+		}
+		else 
+		{
+			anim.SetBool ("Air", false);
 		}
 
 		rigidbody.velocity = v;
@@ -49,5 +73,15 @@ public class Player : MonoBehaviour {
 	{
 		_GM.SetLives (_GM.lives - 1);
 		transform.position = startingposition;
+	}
+
+	void OnCollisionEnter2D(Collision2D col)
+	{
+		air = false;
+	}
+
+	void OnCollisionExit2D(Collision2D col)
+	{
+		air = true;
 	}
 }
