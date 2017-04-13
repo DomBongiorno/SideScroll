@@ -8,6 +8,7 @@ public class Player : MonoBehaviour {
 	public float speed = 5;
 	public float jumpspeed = 6;
 	public float deadZone = -6;
+	public bool fly = false;
 
 	private Vector3 startingposition;
 
@@ -15,7 +16,7 @@ public class Player : MonoBehaviour {
 	GM _GM;
 
 	private Animator anim;
-	public bool air;
+	private bool air;
 
 	void Start ()
 	{
@@ -24,7 +25,7 @@ public class Player : MonoBehaviour {
 		startingposition = transform.position;
 
 		anim = GetComponent<Animator> ();
-		air = true;
+		air = false;
 	}
 	
 
@@ -44,10 +45,7 @@ public class Player : MonoBehaviour {
 			anim.SetBool ("Running", false);
 		}
 
-		if (Input.GetButtonDown ("Jump")) 
-		{
-			v.y = jumpspeed; 
-		}
+
 
 		if (air) 
 		{
@@ -56,6 +54,11 @@ public class Player : MonoBehaviour {
 		else 
 		{
 			anim.SetBool ("Air", false);
+		}
+
+		if (Input.GetButtonDown ("Jump") && (v.y == 0 || fly)) 
+		{
+			v.y = jumpspeed; 
 		}
 
 		rigidbody.velocity = v;
@@ -73,11 +76,13 @@ public class Player : MonoBehaviour {
 	{
 		_GM.SetLives (_GM.lives - 1);
 		transform.position = startingposition;
+		fly = false;
 	}
 
 	void OnCollisionEnter2D(Collision2D col)
 	{
 		air = false;
+
 	}
 
 	void OnCollisionExit2D(Collision2D col)
