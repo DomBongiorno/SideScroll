@@ -9,9 +9,10 @@ public class FlyPowerUp : MonoBehaviour {
 
 	public float poweruptime = 3;
 
+
 	void OnCollisionEnter2D(Collision2D coll)
 	{
-		var player = coll.gameObject.GetComponent<Player> ();
+		player = coll.gameObject.GetComponent<Player> ();
 		if (player != null) 
 		{
 			player.fly = true;
@@ -19,6 +20,8 @@ public class FlyPowerUp : MonoBehaviour {
 			gameObject.GetComponent<SpriteRenderer> ().enabled = false;
 
 			timeStarted = Time.time;
+
+			player.PowerUp ();
 		}
 	}
 

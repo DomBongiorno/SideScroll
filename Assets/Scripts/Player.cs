@@ -17,15 +17,18 @@ public class Player : MonoBehaviour {
 
 	private Animator anim;
 	private bool air;
+	private SpriteRenderer sr;
 
 	void Start ()
 	{
 		rigidbody = GetComponent<Rigidbody2D> ();
 		_GM = FindObjectOfType<GM> ();
 		startingposition = transform.position;
+		sr = GetComponent<SpriteRenderer>();
 
 		anim = GetComponent<Animator> ();
 		air = false;
+
 	}
 	
 
@@ -45,7 +48,14 @@ public class Player : MonoBehaviour {
 			anim.SetBool ("Running", false);
 		}
 
-
+		if (v.x > 0) 
+		{
+			sr.flipX = false;
+		} 
+		else if (v.x<0)
+		{
+			sr.flipX = true;
+		}
 
 		if (air) 
 		{
@@ -89,4 +99,11 @@ public class Player : MonoBehaviour {
 	{
 		air = true;
 	}
+
+	public void PowerUp()
+	{
+		anim.SetTrigger ("PowerUP");
+	}
+
+
 }
