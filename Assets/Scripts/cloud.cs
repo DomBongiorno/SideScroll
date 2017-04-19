@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class cloud : MonoBehaviour {
 
+	Player player; 
+
 	void OnTriggerEnter2D(Collider2D collision)
 	{
-		var player = collision.gameObject.GetComponent<Player> ();
+		player = collision.gameObject.GetComponent<Player> ();
 		if (player != null) 
 		{
 			player.fly = true;
@@ -15,7 +17,7 @@ public class cloud : MonoBehaviour {
 
 	void OnTriggerExit2D(Collider2D collision)
 	{
-		var player = collision.gameObject.GetComponent<Player> ();
+		
 		if (player != null) 
 		{
 			player.fly = false;
