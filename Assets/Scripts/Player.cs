@@ -41,13 +41,10 @@ public class Player : MonoBehaviour {
 
 
 		if (v.x != 0) 
-		{
-			anim.SetBool ("Running", true);
-		} 
+		anim.SetBool ("Running", true);
 		else 
-		{
-			anim.SetBool ("Running", false);
-		}
+		anim.SetBool ("Running", false);
+
 
 		if (v.x > 0) 
 		{
@@ -58,7 +55,7 @@ public class Player : MonoBehaviour {
 			sr.flipX = true;
 		}
 
-		if (air) 
+		if (v.y != 0) 
 		{
 			anim.SetBool ("Air", true);
 		}
