@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Bombomb : MonoBehaviour 
 {
+
+	public int radius = 10;
+
 	void OnCollisionEnter2D(Collision2D coll)
 	{
 		var player = coll.gameObject.GetComponent<Player>();
@@ -13,7 +16,7 @@ public class Bombomb : MonoBehaviour
 			var enemies = FindObjectsOfType<Enemy> ();
 			foreach (var e in enemies) 
 			{
-				if (Vector3.Distance (this.transform.position, e.transform.position) < 10) 
+				if (Vector3.Distance (this.transform.position, e.transform.position) < radius) 
 				{
 					e.gameObject.SetActive (false);
 				}
