@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bombomb : Throwable 
 {
 
-	public int radius = 10;
+	public int radius = 4;
 
 	void Update()
 	{

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StunGrenade : Throwable {
 
-	public int radius = 10;
+	public int radius = 4;
 
 	void Update()
 	{
@@ -40,11 +40,30 @@ public class StunGrenade : Throwable {
 	IEnumerator stun(Enemy e)
 	{
 		var SR = e.GetComponent<SpriteRenderer> ();
-		SR.color = new Color (1, 1, 1, .5f);
+		var animator = e.GetComponent<Animator> ();
+
 		e.enabled = false;
+		if (animator != null) 
+		{
+			animator.enabled = false;
+		}
+		for (int i = 0; i < 6; i++) 
+		{
+			SR.color = new Color (1, 1, 1, 1-(i * .1f));
+			yield return new WaitForSeconds (.1f);
+		}
+			
 		yield return new WaitForSeconds (3);
 
+		for (int i = 0; i < 11; i++) 
+		{
+			SR.color = new Color (1, 1, 1,i * .1f);
+			yield return new WaitForSeconds (.1f);
+		}
+		if (animator != null) 
+		{
+			animator.enabled = true;
+		}
 		e.enabled = true;
-		SR.color = new Color (1, 1, 1, 1);
 	}
 }
