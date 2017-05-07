@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Throwable : Weapon {
 
+	Player player;
 	public bool isActive = false;
 
 	public override void Attack()
@@ -12,7 +13,7 @@ public class Throwable : Weapon {
 
 		rigidBody2D.velocity = new Vector2 (5,0);
 		rigidBody2D.isKinematic = false;
-		collider2D.enabled = true;	
+		collider2D.enabled = true;
 	}
 
 	public override void PickUp (Player player)
@@ -21,6 +22,7 @@ public class Throwable : Weapon {
 		{
 			return;
 		}
+
 		isActive = true;
 		base.PickUp (player);
 	}

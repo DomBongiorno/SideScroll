@@ -99,10 +99,9 @@ public class Player : MonoBehaviour {
 		air = false;
 
 		var weapon = coll.gameObject.GetComponent<Weapon> ();
-		if (weapon != null ) 
-		{
-			weapon.PickUp (this);
+		if (weapon != null && transform.childCount == 0) {
 			currentweapon = weapon;
+			weapon.PickUp (this);
 		}
 
 	}
