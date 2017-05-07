@@ -45,7 +45,7 @@ public class AutoGun : Weapon
 		{
 			timeStarted = 0;
 			this.gameObject.SetActive (false);
-	
+			transform.parent = null;
 		}
 	}
 

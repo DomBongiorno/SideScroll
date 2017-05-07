@@ -11,7 +11,7 @@ public class Bombomb : Throwable
 	{
 	}
 
-	void OnCollisionEnter2D(Collision2D coll)
+	void OnTriggerEnter2D(Collider2D coll)
 	{
 		var player = coll.gameObject.GetComponent<Player>();
 

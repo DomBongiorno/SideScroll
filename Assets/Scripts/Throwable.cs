@@ -14,6 +14,7 @@ public class Throwable : Weapon {
 		rigidBody2D.velocity = new Vector2 (5,0);
 		rigidBody2D.isKinematic = false;
 		collider2D.enabled = true;
+
 	}
 
 	public override void PickUp (Player player)

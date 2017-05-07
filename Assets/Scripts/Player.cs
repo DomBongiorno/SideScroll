@@ -94,15 +94,20 @@ public class Player : MonoBehaviour {
 		fly = false;
 	}
 
+	void OnTriggerEnter2D(Collider2D coll)
+	{
+		var weapon = coll.gameObject.GetComponent<Weapon> ();
+		if (weapon != null && transform.childCount == 0) 
+		{
+			currentweapon = weapon;
+			weapon.PickUp (this);
+		}
+	}
+
 	void OnCollisionEnter2D(Collision2D coll)
 	{
 		air = false;
 
-		var weapon = coll.gameObject.GetComponent<Weapon> ();
-		if (weapon != null && transform.childCount == 0) {
-			currentweapon = weapon;
-			weapon.PickUp (this);
-		}
 
 	}
 
