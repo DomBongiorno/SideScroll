@@ -4,7 +4,7 @@ using System.Collections;
 public class Weapon : MonoBehaviour
 {
 
-	protected new Rigidbody2D rigidBody2D;
+	protected Rigidbody2D rigidBody2D;
 	protected new Collider2D collider2D;
 
 

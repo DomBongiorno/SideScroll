@@ -6,7 +6,10 @@ public class AutoGun : Weapon
 {
 	private float timeStarted = 0;
 
-	public float weapontime = 3;
+	public Rigidbody2D bullet;
+	public float speed = 10f;
+
+	public float weapontime = 5;
 	public GameObject firepoint;
 	Player player;
 
@@ -21,10 +24,7 @@ public class AutoGun : Weapon
 		collider2D.enabled = false;
 		timeStarted = Time.time;
 	}
-
-	public Rigidbody2D bullet;
-	public float speed = 10f;
-
+		
 	void Fire() 
 	{
 		Rigidbody2D bulletClone = (Rigidbody2D) Instantiate(bullet, firepoint.transform.position, firepoint.transform.rotation);

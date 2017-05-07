@@ -12,7 +12,7 @@ public class Bullet : MonoBehaviour {
 		enemy = coll.gameObject.GetComponent<Enemy> ();
 		if (enemy != null) 
 		{
-			enemy.gameObject.SetActive (false);
+			FindObjectOfType<Enemy> ().death ();
 		}
 		if (this == null) 
 		{
