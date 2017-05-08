@@ -36,7 +36,7 @@ public class AutoGun : Weapon
 
 	// Calls the fire method when holding down ctrl or mouse
 	public override void Attack () {
-		if (Input.GetButton("Fire1") && timeStarted + weapontime > Time.time) {
+		if (timeStarted + weapontime > Time.time) {
 			Fire();
 		}
 	}

@@ -73,8 +73,9 @@ public class Player : MonoBehaviour {
 			v.y = jumpspeed; 
 		}
 
-		if (Input.GetButtonDown ("Fire1")&& currentweapon != null) 
+		if (Input.GetButtonDown ("Fire1") && currentweapon != null) 
 		{
+			Debug.Log ("you fired");
 			currentweapon.Attack ();
 		}
 
