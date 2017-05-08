@@ -9,7 +9,6 @@ public class AutoGun : Weapon
 	public Rigidbody2D bullet;
 	public float speed = 10f;
 
-	public float weapontime = 5;
 	public GameObject firepoint;
 	Player player;
 
@@ -24,7 +23,6 @@ public class AutoGun : Weapon
 		rigidBody2D.velocity = new Vector2 ();
 		rigidBody2D.isKinematic = true;
 		collider2D.enabled = false;
-		timeStarted = Time.time;
 	}
 		
 	void Fire() 
