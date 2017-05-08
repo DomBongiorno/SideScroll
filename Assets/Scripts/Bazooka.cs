@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bazooka : Weapon {
 
 	public GameObject rocketPrefab;
+	public GameObject firepoint;
 
 	public override void PickUp (Player player)
 	{
@@ -21,7 +22,7 @@ public class Bazooka : Weapon {
 	public override void Attack ()
 	{
 		var rocket = Instantiate (rocketPrefab);
-		rocket.transform.position = this.transform.position;
+		rocket.transform.position = firepoint.transform.position;
 		rocket.GetComponent<Rigidbody2D> ().velocity = new Vector2 (10, 0);
 
 		base.Attack ();
