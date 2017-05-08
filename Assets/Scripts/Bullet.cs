@@ -13,6 +13,7 @@ public class Bullet : MonoBehaviour {
 		if (enemy != null) 
 		{
 			FindObjectOfType<Enemy> ().death ();
+			Destroy (gameObject);
 		}
 		if (this == null) 
 		{
