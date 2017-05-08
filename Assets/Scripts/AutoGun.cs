@@ -13,6 +13,8 @@ public class AutoGun : Weapon
 	public GameObject firepoint;
 	Player player;
 
+	public int ammo;
+
 	public override void PickUp (Player player)
 	{
 		transform.parent = player.transform;

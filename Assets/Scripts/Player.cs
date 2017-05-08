@@ -21,6 +21,8 @@ public class Player : MonoBehaviour {
 	private bool air;
 	private SpriteRenderer sr;
 
+	private List<Weapon> weapons = new List<Weapon>();
+
 	void Start ()
 	{
 		rigidbody = GetComponent<Rigidbody2D> ();
