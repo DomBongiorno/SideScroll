@@ -6,14 +6,18 @@ public class Enemy : MonoBehaviour
 {
 	public int health;
 
+	public void Update()
+	{
+
+	}
+
 	public void death()
 	{
 		health = health - 1;
 		if (health == 0) 
 		{
-			gameObject.SetActive (false);
+			this.gameObject.SetActive (false);
 		}
-
 	}
 
 	void OnCollisionEnter2D(Collision2D coll)

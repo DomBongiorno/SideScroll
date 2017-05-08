@@ -9,15 +9,14 @@ public class Bullet : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D coll)
 	{
 		
-		enemy = coll.gameObject.GetComponent<Enemy> ();
+		var enemy = coll.gameObject.GetComponent<Enemy> ();
+
+
 		if (enemy != null) 
 		{
-			FindObjectOfType<Enemy> ().death ();
 			Destroy (gameObject);
+			enemy.death ();
 		}
-		if (this == null) 
-		{
-			Destroy (gameObject);
-		}
+
 	}
 }

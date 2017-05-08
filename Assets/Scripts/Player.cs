@@ -32,6 +32,15 @@ public class Player : MonoBehaviour {
 		air = false;
 
 	}
+
+	void Update()
+	{
+		if (Input.GetButtonDown ("Fire1") && currentweapon != null) 
+		{
+			Debug.Log ("you fired");
+			currentweapon.Attack ();
+		}
+	}
 	
 
 	void FixedUpdate ()
@@ -71,11 +80,7 @@ public class Player : MonoBehaviour {
 			v.y = jumpspeed; 
 		}
 
-		if (Input.GetButtonDown ("Fire1") && currentweapon != null) 
-		{
-			Debug.Log ("you fired");
-			currentweapon.Attack ();
-		}
+
 
 		rigidbody.velocity = v;
 
