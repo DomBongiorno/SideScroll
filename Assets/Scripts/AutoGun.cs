@@ -13,8 +13,8 @@ public class AutoGun : Weapon
 	public GameObject firepoint;
 	Player player;
 
-	public int ammo;
-
+	public int ammo = 5;
+	 
 	public override void PickUp (Player player)
 	{
 		transform.parent = player.transform;
@@ -36,19 +36,17 @@ public class AutoGun : Weapon
 
 	// Calls the fire method when holding down ctrl or mouse
 	public override void Attack () {
-		if (timeStarted + weapontime > Time.time) {
+		if (ammo > 0) {
 			Fire();
+			ammo = ammo - 1;
 		}
-	}
-
-	void Update()
-	{
-		if (timeStarted != 0 && timeStarted + weapontime < Time.time) 
+		if (ammo == 0) 
 		{
-			timeStarted = 0;
 			this.gameObject.SetActive (false);
 			transform.parent = null;
 		}
 	}
+
+
 
 }
