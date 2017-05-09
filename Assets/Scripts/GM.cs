@@ -10,10 +10,11 @@ public class GM : MonoBehaviour
 	public int lives;
 	private int points;
 
-
+	public GameObject Youwin;
 	public GameObject Gameover;
 	public Text LivesValue;
 	public Text ScoreValue;  
+
 
 	public void SetLives(int newValue)
 	{
@@ -41,5 +42,9 @@ public class GM : MonoBehaviour
 		return points;
 	}
 
+	public void Win ()
+	{
+		Youwin.SetActive (true);
+	}
 
 }

@@ -30,7 +30,7 @@ public class Bombomb : Throwable
 		{
 			if (Vector3.Distance (this.transform.position, e.transform.position) < radius) 
 			{
-				FindObjectOfType<Enemy> ().death ();
+				e.death ();
 			}
 		}
 
